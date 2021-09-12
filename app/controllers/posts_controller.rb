@@ -33,13 +33,13 @@ class PostsController < ApplicationController
     if @post.update(params[:post].permit(:title, :body))
       redirect_to @post
     else
-      render 'edit'
+      render :edit
     end
   end
 
   def destroy
     @post = Post.find(params[:id])
-    @post.destroy
+    @post.delete
   
     redirect_to root_path
   end
